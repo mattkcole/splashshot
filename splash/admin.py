@@ -1,3 +1,4 @@
 from django.contrib import admin
+from splash.models import PotentialPhotographers
 
-# Register your models here.
+admin.site.register(PotentialPhotographers)

@@ -1,20 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from splash.forms import PhotographerForm
+from django.shortcuts import render_to_response
 
 def index(request):
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage is the same as {{ boldmessage }} in the template!
-    #context_dict = {'boldmessage': "Crunchy, creamy, cookie, candy, cupcake!"}
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
     return render(request, 'splash/index.html')
 
 def planners(request):
     return render(request, 'splash/planners.html')
 
 def photographers(request):
-    return render(request, 'splash/photographers.html')
+    form = PhotographerForm()
+    if request.method == 'POST':
+        form = PhotographerForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+
+            return index(request)
+        else:
+            print(form.errors)
+    return render(request, 'splash/photographers.html', {'form': form})
 
 def index_lp(request):
     return render(request, 'splash/index_lp.html')
