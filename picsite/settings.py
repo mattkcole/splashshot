@@ -1,4 +1,3 @@
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -15,7 +14,7 @@ SECRET_KEY = 'szmw&02q)%om+!5y1f49)5o*c^jcpl3%cs#4mwftw*bg_53%&3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['splashshot.herokuapp.com']
 
 
 # Application definition
@@ -110,3 +109,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR, ]
+
+
+# specif for herokuapp
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
