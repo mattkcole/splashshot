@@ -28,3 +28,23 @@ img {
   color:white;
   padding: 1rem;
 }
+
+#about_cover {
+  background: #222 url("images/wedding.jpeg") center center no-repeat;
+  background-size: contain;
+  color: black;
+  height: 100%;
+  text-align: center;
+  display:flex;
+  align-items: center;
+}
+
+#about_cover_cover-caption {
+  width: 100%;
+}
+
+.about-text {
+  background: rgba(0,0,0,0.8);
+  color:white;
+  padding: 1rem;
+}
