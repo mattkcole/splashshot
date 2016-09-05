@@ -5,11 +5,12 @@ from splash.models import PotentialPhotographers
 
 
 class PhotographerForm(forms.ModelForm):
+    firstname = forms.CharField(max_length=128,
+    help_text="What's your first name?")
     email = forms.EmailField(max_length=128,
     help_text="Please enter your email.")
-    firstname = forms.CharField(max_length=128)
-    lastname = forms.CharField(max_length=128)
-    prob = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+
+    lastname = forms.CharField(widget=forms.HiddenInput(), max_length=128, initial="uk")
     class Meta:
         # Provide an association between the ModelForm and a model
         model = PotentialPhotographers

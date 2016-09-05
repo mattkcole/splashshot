@@ -16,19 +16,23 @@
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
   </head>
   <body>
-    <h1>What is your contact information?</h1>
-    <div>
+    <h1>How may we reach you?</h1>
+    <br>
+      <div>
+      </form>
       <form id="PhotographerForm" method="post" action="/splash/photographers/">
         {% csrf_token %}
         {% for hidden in form.hidden_fields %}
-          {{ hidden }}
+        {{ hidden }}
         {% endfor %}
         {% for field in form.visible_fields %}
-          {{ field.errors }}
-          {{ field.help_text }}
-          {{ field }}
+        {{ field.errors }}
+        {{ field.help_text }}
+        {{ field }}
+        <br>
+        <br>
         {% endfor %}
-        <input type="submit" name="submit" value="Submit!" />
+        <input type="submit" name="submit" value="OK, Go!" />
       </form>
     </div>
   </body>
